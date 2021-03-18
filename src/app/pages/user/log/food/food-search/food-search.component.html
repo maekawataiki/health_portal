@@ -1,0 +1,37 @@
+<div class="row">
+  <mat-form-field class="food">
+    <input matInput placeholder="What did you eat?" aria-label="Food" [matAutocomplete]="food" [formControl]="foodCtrl">
+    <mat-autocomplete #food="matAutocomplete" autoActiveFirstOption>
+      <mat-option *ngIf="isLoading" class="is-loading">
+        <mat-spinner diameter="50"></mat-spinner>
+      </mat-option>
+      <ng-container *ngIf="!isLoading">
+        <mat-option *ngFor="let food of suggestions" [value]="food.Tagnames">
+          <span>{{ food.Tagnames }}</span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+</div>
+<div class="row">
+  <mat-form-field class="amount">
+    <input matInput placeholder="How much?" aria-label="Amount" [matAutocomplete]="amount" [formControl]="amountCtrl">
+    <mat-autocomplete #amount="matAutocomplete" autoActiveFirstOption>
+      <ng-container>
+        <mat-option *ngFor="let amount of amounts" [value]="amount">
+          <span>{{ amount }}</span>
+        </mat-option>
+      </ng-container>
+    </mat-autocomplete>
+  </mat-form-field>
+  <mat-form-field class="when">
+    <mat-label>When?</mat-label>
+    <mat-select [(value)]="time">
+      <mat-option *ngFor="let time of times" [value]="time">
+        {{ time }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="spacer"></div>
+  <button mat-raised-button color="accent" class="log" (click)="submit()">Log Food</button>
+</div>

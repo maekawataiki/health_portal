@@ -1,0 +1,19 @@
+mat-nav-list {
+    padding: 0;
+}
+
+.side {
+    padding: 0;
+    min-width: 15rem;
+
+    .nav-header {
+        margin: 0;
+    }
+
+    .nav-item {
+        border-left: 3px solid transparent;
+    }
+}
+.main {
+    padding: 0;
+}

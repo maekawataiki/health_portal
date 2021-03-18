@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="page-header">
+  <h2>My Custom Plugins</h2>
+  <div class="spacer"></div>
+  <button mat-stroked-button routerLink="new">Create Plugin</button>
+</mat-toolbar>
+
+
+<app-plugin-list link="/developer/plugin/detail" link_param="_id" [plugins]="plugins"></app-plugin-list>
+
+<mat-paginator [length]="totalPlugins" [pageSize]="pluginsPerPage" [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)" *ngIf="plugins.length > 0"></mat-paginator>
+
+<div class="info-text" *ngIf="!isLoading && plugins.length <= 0">
+  <p class="mat-body-1">Oops! You do not have custom plugins yet.</p>
+  <br>
+  <button mat-stroked-button routerLink="/developer/plugin/new">Create Plugin</button>
+</div>

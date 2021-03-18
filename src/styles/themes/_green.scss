@@ -1,0 +1,6 @@
+.green-theme {
+    $primary: mat-palette($mat-green, 200);
+    $accent: mat-palette($mat-green, A400, A100, A700);
+    $warn: mat-palette($mat-red);
+    @include light-dark-theme($primary, $accent, $warn);
+}

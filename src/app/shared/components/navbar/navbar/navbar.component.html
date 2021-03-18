@@ -1,0 +1,19 @@
+<mat-toolbar color="primary">
+  <button mat-button routerLink="/">
+    <span>THE BODY PORTAL</span>
+  </button>
+  <div class="hide-sm">
+    <ng-container *ngTemplateOutlet="linkTemplate"></ng-container>
+  </div>
+  <div class="spacer"></div>
+  <app-color-picker></app-color-picker>
+  <app-dark-mode></app-dark-mode>
+  <app-user-menu></app-user-menu>
+</mat-toolbar>
+<mat-toolbar color="primary" class="show-sm">
+  <ng-container *ngTemplateOutlet="linkTemplate"></ng-container>
+</mat-toolbar>
+
+<ng-template #linkTemplate>
+  <button mat-button *ngFor="let link of links" [routerLink]="link.path">{{ link.label }}</button>
+</ng-template>

@@ -1,0 +1,34 @@
+<div class="header bg-primary">
+  <h1>THE BODY PORTAL</h1>
+  <span>Customized Health Care Only for You</span>
+</div>
+<app-wave></app-wave>
+<div class="guide">
+  <h2>What is your Goal?</h2>
+  <small>Choose all you are interested!</small>
+  <div class="card-container">
+    <app-card *ngFor="let goal of goals" [title]="goal.title" [src]="goal.img" [active]="goal.selected"
+      (click)="goal.selected = !goal.selected"></app-card>
+  </div>
+  <button class="btn-lg" mat-raised-button color="accent">Start for Free</button>
+</div>
+
+<app-wave-stroke></app-wave-stroke>
+
+<div class="section">
+  <h2>You are special</h2>
+  <p>No one has the same body. There is a best practice only for you.</p>
+</div>
+<div class="section">
+  <h2>Customized for you</h2>
+  <p>Choose from variety of plugins. Create a setting only for you.</p>
+</div>
+<div class="section">
+  <h2>Hub of Your Data</h2>
+  <p>Gather all data in here. This app will be the one knows your health the most.</p>
+</div>
+<div class="guide">
+  <button class="btn-lg" mat-raised-button color="accent">Start for Free</button>
+</div>
+
+<app-footer></app-footer>

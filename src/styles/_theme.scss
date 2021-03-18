@@ -1,0 +1,71 @@
+@import '~@angular/material/theming';
+@import './themed_components';
+
+@function vs($mode) {
+    @if $mode=='light' {
+        @return #fffffe;
+    }
+
+    @else {
+        @return #1e1e1e;
+    }
+}
+
+@mixin light-dark-theme($primary, $accent, $warn) {
+    $theme: mat-light-theme($primary, $accent, $warn);
+    @include angular-material-theme($theme);
+    @include custom-theme($theme, 'light');
+
+    &.dark {
+        $theme: mat-dark-theme($primary, $accent, $warn);
+        @include angular-material-theme($theme);
+        @include custom-theme($theme, 'dark');
+    }
+}
+
+@mixin custom-theme($theme, $mode: 'light') {
+    $vs: vs($mode);
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+
+    .primary-text {
+        color: mat-color($foreground, text);
+    }
+
+    .secondary-text {
+        color: mat-color($foreground, secondary-text);
+    }
+
+    .bg-card {
+        background: mat-color($background, 'card');
+    }
+
+    .bg-primary {
+        background-color: mat-color($primary);
+    }
+
+    .bg-vs {
+        background-color: $vs;
+    }
+
+    .shadow-accent {
+        box-shadow: 0 0 5px 5px mat-color($primary, darker);
+    }
+
+    .active {
+        border-left: 3px solid mat-color($accent) !important;
+    }
+
+    @include themed_components($theme, $vs);
+}
+
+@include mat-core();
+
+@import 'themes/default';
+@import 'themes/icicle';
+@import 'themes/green';
+@import 'themes/orange';
+@import 'themes/mono';
+@import './typography';

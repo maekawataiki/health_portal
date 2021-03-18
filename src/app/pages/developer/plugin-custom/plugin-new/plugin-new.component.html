@@ -1,0 +1,18 @@
+<mat-toolbar color="primary" class="page-header">
+  <h2>Plugin</h2>
+</mat-toolbar>
+<mat-card>
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form (submit)="onSubmit(pluginForm)" #pluginForm="ngForm" *ngIf="!isLoading">
+    <h3 class="title">Create New Plugin</h3>
+
+    <mat-checkbox name="food" [(ngModel)]="food">Food</mat-checkbox>
+    <mat-checkbox name="activity" [(ngModel)]="activity">Activity</mat-checkbox>
+    <mat-checkbox name="sleep" [(ngModel)]="sleep">Sleep</mat-checkbox>
+
+    <div class="button-row">
+      <button mat-button (click)="onCancel()" type="button">Cancel</button>
+      <button mat-raised-button color="accent" type="submit">Create New Plugin</button>
+    </div>
+  </form>
+</mat-card>

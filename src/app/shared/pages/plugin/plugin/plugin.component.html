@@ -1,0 +1,28 @@
+<mat-toolbar color="primary" class="page-header">
+  <h2>Plugins</h2>
+  <div class="spacer"></div>
+  <button mat-stroked-button routerLink="/developer/plugin" *ngIf="userIsAuthenticated">Custom Plugins</button>
+  <button mat-stroked-button routerLink="/auth/login" *ngIf="!userIsAuthenticated">Create Custom Plugins</button>
+</mat-toolbar>
+
+<div class="mat-tab-nav-bar search">
+  <mat-form-field>
+    <label class="search-icon" matPrefix>
+      <mat-icon>search</mat-icon>
+    </label>
+    <input matInput placeholder="Search Plugins" aria-label="Search" [formControl]="searchCtrl">
+    <button mat-button *ngIf="searchCtrl.value" matSuffix mat-icon-button aria-label="Clear"
+      (click)="searchCtrl.reset()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-form-field>
+</div>
+
+<app-plugin-list link="/plugin/detail" link_param="unique_id" [plugins]="plugins"></app-plugin-list>
+
+<mat-paginator [length]="totalPlugins" [pageSize]="pluginsPerPage" [pageSizeOptions]="pageSizeOptions"
+  (page)="onChangedPage($event)" *ngIf="plugins.length > 0"></mat-paginator>
+
+<div class="info-text" *ngIf="!isLoading && plugins.length <= 0">
+  <p class="mat-body-1">Oops! There is no matching plugins. Try another search.</p>
+</div>

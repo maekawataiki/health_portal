@@ -1,0 +1,17 @@
+<mat-toolbar color="primary" class="page-header">
+  <h2>Plugin</h2>
+</mat-toolbar>
+<mat-spinner *ngIf="!plugin"></mat-spinner>
+<div *ngIf="plugin">
+  <div class="plugin-detail-header">
+    <img class="app-icon" src="/assets/images/water.png" alt="">
+    <div class="info">
+      <h3 class="title">{{ plugin.title }}</h3>
+      <p class="description secondary-text">{{ plugin.description }}</p>
+      <div class="button-row">
+        <button mat-flat-button color="primary">Enable</button>
+        <button mat-stroked-button color="primary" [routerLink]="['/developer/plugin/edit', plugin._id]">Edit</button>
+      </div>
+    </div>
+  </div>
+</div>

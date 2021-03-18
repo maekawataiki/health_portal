@@ -1,0 +1,11 @@
+<div class="wrapper" *ngIf="plugins.length > 0">
+  <mat-card *ngFor="let plugin of plugins" [routerLink]="[link, plugin[link_param]]">
+    <div class="card-wrapper">
+      <img class="app-icon" src="/assets/images/water.png" alt="">
+      <div class="info">
+        <h3 class="title">{{ plugin.title }}</h3>
+        <p class="description secondary-text">{{ plugin.description }}</p>
+      </div>
+    </div>
+  </mat-card>
+</div>

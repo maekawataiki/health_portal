@@ -1,0 +1,32 @@
+.search {
+    padding: 0 2rem;
+
+    mat-form-field {
+        width: 100%;
+
+        .search-icon {
+            margin-right: 8px;
+            padding: 4px 8px;
+
+            mat-icon {
+                vertical-align: middle;
+                height: 24px;
+                line-height: 24px;
+            }
+        }
+
+        ::ng-deep .mat-form-field-wrapper {
+            padding-bottom: .84375rem;
+
+            .mat-form-field-underline {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: 720px) {
+    .search {
+        padding: 0 1rem;
+    }
+}

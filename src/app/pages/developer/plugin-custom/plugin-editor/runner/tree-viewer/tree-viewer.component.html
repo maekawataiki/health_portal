@@ -1,0 +1,30 @@
+<div class="tree-wrapper">
+  <ng-template #tree let-node let-key="key" let-expand="expand">
+    <ng-container *ngIf="isObj(node[key])">
+      <div class="tree-node">
+        <button mat-icon-button (click)="expand=!expand">
+          <mat-icon class="mat-icon-rtl-mirror">{{ expand ? 'expand_more' : 'chevron_right' }}
+          </mat-icon>
+        </button>
+        <span>{{ key }}</span>
+      </div>
+      <div class="children" [ngClass]="{ 'hide': !expand }">
+        <ng-container *ngFor="let childkey of objectKeys(node[key])">
+          <ng-container *ngTemplateOutlet="tree; context: { $implicit: node[key], key: childkey, expand: false }">
+          </ng-container>
+        </ng-container>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="!isObj(node[key])">
+      <div class="tree-node">
+        <span>{{ key }}</span>
+        <input matInput class="primary-text" [(ngModel)]="node[key]" (ngModelChange)="notify()">
+      </div>
+    </ng-container>
+  </ng-template>
+
+  <ng-container *ngFor="let key of objectKeys(data)">
+    <ng-container *ngTemplateOutlet="tree; context: { $implicit: data, key: key, expand: false }">
+    </ng-container>
+  </ng-container>
+</div>

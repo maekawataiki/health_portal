@@ -1,0 +1,30 @@
+<div class="tabs mat-app-background">
+    <div class="tab selected">
+        <span>Test Variables</span>
+    </div>
+    <div class="spacer"></div>
+    <button mat-flat-button class="run" color="primary" (click)="run()">
+        <mat-icon class="play">play_arrow</mat-icon>
+        <span>Run</span>
+    </button>
+</div>
+<div class="my-code-editor">
+    <div class="my-code-container bg-vs">
+        <div class="input bg-vs">
+            <app-tree-viewer [(data)]="data"></app-tree-viewer>
+        </div>
+        <div class="result bg-vs" [ngStyle]="resultStyle" mwlResizable [enableGhostResize]="true"
+            (resizeEnd)="onResizeEnd($event, resultStyle)">
+            <div class="resize-handle-top" mwlResizeHandle [resizeEdges]="{ top: true }"></div>
+            <div class="tabs mat-app-background">
+                <div class="tab selected">
+                    <span>Log</span>
+                </div>
+                <div class="tab">
+                    <span>Result</span>
+                </div>
+            </div>
+            {{ result }}
+        </div>
+    </div>
+</div>

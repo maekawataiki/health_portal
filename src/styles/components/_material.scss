@@ -1,0 +1,58 @@
+mat-toolbar.page-header {
+    height: 80px;
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+mat-spinner {
+    margin: auto;
+}
+
+mat-card,
+mat-paginator {
+    margin: 2rem;
+}
+
+.mat-raised-button.btn-lg {
+    padding: .5rem 3rem;
+    font-size: 24px;
+    transition: all .1s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+mat-list {
+    margin-bottom: 1rem;
+
+    .list-tr {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+
+        .list-th,
+        .list-td {
+            word-break: break-word;
+            padding: 0;
+        }
+    }
+
+    .button-row {
+        margin: 1rem 1rem 0;
+    }
+}
+
+.mat-list-item-content {
+    flex-grow: 1;
+}
+
+@media (max-width: 720px) {
+
+    mat-card,
+    mat-paginator {
+        margin: 1rem;
+    }
+}

@@ -1,0 +1,13 @@
+<ng-container *ngIf="selected">
+  <div class="tabs mat-app-background">
+    <div class="tab" *ngFor="let script of tabs; let i = index"
+      [ngClass]="{ 'selected': selected?.name === script.name }">
+      <span (click)="setScript(script)">{{ script.name }}</span>
+      <button mat-icon-button class="close" (click)="closeTab(i)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+  </div>
+  <ngx-monaco-editor #editor class="my-code-editor" [options]="editorOptions" [(ngModel)]="selected.code">
+  </ngx-monaco-editor>
+</ng-container>

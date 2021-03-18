@@ -1,0 +1,19 @@
+<div class="x-col">
+  <div class="main">
+    <mat-card>
+      <app-food-search (log)="addFood($event)"></app-food-search>
+    </mat-card>
+    <mat-card>
+      <app-food-list [(foodTimes)]="foodTimes" (foodTimesChange)="listChanged()"></app-food-list>
+    </mat-card>
+  </div>
+  <div class="side">
+    <mat-card>
+      <mat-nav-list>
+        <h3 mat-subheader class="nav-header">Favorites</h3>
+        <a mat-list-item [routerLink]="link.path" routerLinkActive="active" *ngFor="let link of links"
+          class="nav-item">{{ link.label }}</a>
+      </mat-nav-list>
+    </mat-card>
+  </div>
+</div>

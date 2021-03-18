@@ -1,0 +1,49 @@
+<mat-list>
+  <h3 mat-subheader>My Body Profile</h3>
+  <mat-spinner *ngIf="!setting"></mat-spinner>
+  <ng-container *ngIf="setting">
+
+    <mat-list-item class="list-tr" mat-line>
+      <span class="list-th">Birth Date</span>
+      <div class="spacer"></div>
+      <mat-form-field class="list-td">
+        <input matInput name="birth_date" [matDatepicker]="picker" placeholder="Birth Date"
+          [(ngModel)]="setting.data.birth_date" required>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="multi-year"></mat-datepicker>
+      </mat-form-field>
+    </mat-list-item>
+
+    <mat-list-item class="list-tr" mat-line>
+      <span class="list-th">Height</span>
+      <div class="spacer"></div>
+      <mat-form-field class="list-td">
+        <input matInput name="height" placeholder="Height" [(ngModel)]="setting.data.height" required>
+        <span matSuffix>cm</span>
+      </mat-form-field>
+    </mat-list-item>
+
+    <mat-list-item class="list-tr" mat-line>
+      <span class="list-th">Weight</span>
+      <div class="spacer"></div>
+      <mat-form-field class="list-td">
+        <input matInput name="weight" placeholder="Weight" [(ngModel)]="setting.data.weight" required>
+        <span matSuffix>kg</span>
+      </mat-form-field>
+    </mat-list-item>
+
+    <mat-list-item class="list-tr" mat-line>
+      <span class="list-th">Sex</span>
+      <div class="spacer"></div>
+      <mat-radio-group class="list-td" aria-label="Select an option" [(ngModel)]="setting.data.sex" required>
+        <mat-radio-button value="Male">Male</mat-radio-button>
+        <mat-radio-button value="Female">Female</mat-radio-button>
+      </mat-radio-group>
+    </mat-list-item>
+
+    <div class="button-row">
+      <button mat-stroked-button (click)="save()">Save</button>
+    </div>
+
+  </ng-container>
+</mat-list>

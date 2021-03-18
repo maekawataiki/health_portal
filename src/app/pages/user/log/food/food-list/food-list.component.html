@@ -1,0 +1,13 @@
+<div cdkDropListGroup class="dnd-group">
+  <ng-container *ngFor="let time of foodTimes">
+    <label class="secondary-text">{{ time.time }}</label>
+    <div cdkDropList [cdkDropListData]="time.foodRecords" (cdkDropListDropped)="drop($event)" class="dnd-list">
+      <div cdkDrag [cdkDragData]="record" *ngFor="let record of time.foodRecords" class="dnd-item"
+        [ngClass]="[themeService.currentTheme, themeService.currentDark]">
+        <div class="inner bg-card primary-text">
+          {{ record.food }} {{ record.amount }}
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

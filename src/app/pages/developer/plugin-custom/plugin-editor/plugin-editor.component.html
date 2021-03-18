@@ -1,0 +1,27 @@
+<div class="wrapper" *ngIf="plugin">
+  <div class="explorer mat-app-background" [ngStyle]="explorerStyle" mwlResizable [enableGhostResize]="true"
+    (resizeEnd)="onResizeEnd($event, explorerStyle)">
+    <div class="resize-handle-right" mwlResizeHandle [resizeEdges]="{ right: true }"></div>
+    <h3 class="explorer-title">Explorer</h3>
+    <ol class="list">
+      <li class="list-item" *ngFor="let script of plugin.scripts"
+        [ngClass]="{ 'selected': selected?.name === script.name }" (click)="setScript(script)">{{ script.name }}</li>
+    </ol>
+    <div class="spacer"></div>
+    <div class="button-group-bottom">
+      <button mat-stroked-button (click)="save()">Save</button>
+      <button mat-stroked-button>Publish</button>
+    </div>
+  </div>
+  
+  <div class="workspace">
+    <div class="editor">
+      <app-editer [(tabs)]="tabs" [(selected)]="selected"></app-editer>
+    </div>
+    <div class="result" [ngStyle]="resultStyle" mwlResizable [enableGhostResize]="true"
+      (resizeEnd)="onResizeEnd($event, resultStyle)">
+      <div class="resize-handle-left" mwlResizeHandle [resizeEdges]="{ left: true }"></div>
+      <app-runner [selected]="selected"></app-runner>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+@import '~@angular/material/theming';
+
+@mixin themed-components($theme, $vs) {
+    $primary: map-get($theme, primary);
+    $accent: map-get($theme, accent);
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+
+    .wave svg path {
+        fill: mat-color($primary);
+    }
+
+    .list {
+        .list-item {
+            &:hover {
+                background-color: mat-color($background, hover);
+            }
+
+            &.selected {
+                background-color: mat-color($background, focused-button);
+            }
+        }
+    }
+
+    .tabs {
+        box-sizing: content-box;
+        border-bottom: 1px solid $vs;
+
+        .tab {
+            border: solid mat-color($background, 'card');
+            border-width: 0 1px 0 0;
+
+            &.run {
+                border-width: 0;
+            }
+
+            &.selected {
+                background: $vs;
+            }
+        }
+    }
+
+    .resize-handle-right {
+        border-right: 1px solid mat-color($foreground, divider);
+    }
+
+    .resize-handle-left,
+    .resize-handle-top {
+        background: mat-color($background, background);
+    }
+
+}

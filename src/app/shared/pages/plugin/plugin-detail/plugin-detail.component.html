@@ -1,0 +1,42 @@
+<mat-toolbar color="primary" class="page-header">
+  <h2>Plugin</h2>
+</mat-toolbar>
+<mat-spinner *ngIf="!plugin"></mat-spinner>
+<div *ngIf="plugin">
+  <div class="plugin-detail-header">
+    <img class="app-icon" src="/assets/images/water.png" alt="">
+    <div class="info">
+      <h3 class="title">{{ plugin.title }}</h3>
+      <p class="description secondary-text">{{ plugin.description }}</p>
+      <button mat-flat-button color="primary">Enable</button>
+    </div>
+  </div>
+
+  <mat-tab-group>
+    <mat-tab label="Docs">
+      <div class="wrapper">
+        <mat-card>
+          <p class="doc">{{ plugin.doc }}</p>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Reviews">
+      <div class="wrapper">
+        <mat-card *ngFor="let review of plugin.reviews">
+          <mat-card-title>{{ review.title }}</mat-card-title>
+          <mat-card-subtitle>By {{ review.author }}</mat-card-subtitle>
+          <mat-card-subtitle>Rating: {{ review.rating }}</mat-card-subtitle>
+          <p>{{ review.content }}</p>
+        </mat-card>
+      </div>
+    </mat-tab>
+    <mat-tab label="Info">
+      <div class="wrapper">
+        <mat-card>
+          <p>Created by <a href="">{{ plugin.author }}</a></p>
+          <p>Version {{ plugin.version }}</p>
+        </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

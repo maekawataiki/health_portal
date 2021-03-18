@@ -1,0 +1,2 @@
+$custom-typography: mat-typography-config($font-family: 'akkurat-pro-light, Helvetica, Arial, sans-serif');
+@include angular-material-typography($custom-typography);

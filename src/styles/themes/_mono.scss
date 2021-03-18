@@ -1,0 +1,15 @@
+.mono-theme {
+    $primary: mat-palette($mat-gray, 200);
+    $accent: mat-palette($mat-green, A700, A100, A700);
+    $warn: mat-palette($mat-red);
+    $theme: mat-light-theme($primary, $accent, $warn);
+    @include angular-material-theme($theme);
+    @include custom-theme($theme, 'light');
+
+    &.dark {
+        $primary: mat-palette($mat-gray, 700);
+        $theme: mat-dark-theme($primary, $accent, $warn);
+        @include angular-material-theme($theme);
+        @include custom-theme($theme, 'dark');
+    }
+}

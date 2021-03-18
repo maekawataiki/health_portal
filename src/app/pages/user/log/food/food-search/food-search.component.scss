@@ -1,0 +1,15 @@
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 100%;
+}
+
+.food, .amount {
+    flex-grow: 1;
+}
+
+.amount {
+    margin-right: 1rem;
+}

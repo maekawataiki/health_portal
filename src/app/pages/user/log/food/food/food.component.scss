@@ -1,0 +1,32 @@
+mat-nav-list {
+    padding: 0;
+}
+
+.side {
+    flex-shrink: 1;
+    padding: 0;
+    min-width: 18rem;
+
+    mat-card {
+        margin: 0;
+        padding: 0;
+
+        .nav-header {
+            margin: 0;
+        }
+
+        .nav-item {
+            border-left: 3px solid transparent;
+        }
+    }
+}
+
+.main {
+    mat-card {
+        margin: 0 0 1rem;
+
+        &:last-child {
+            margin: 0;
+        }
+    }
+}

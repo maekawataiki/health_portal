@@ -1,0 +1,15 @@
+<mat-toolbar color="primary" class="page-header">
+  <h2>Setting</h2>
+</mat-toolbar>
+<div class="x-col">
+  <mat-card class="side">
+    <mat-nav-list>
+      <h3 mat-subheader class="nav-header">Personal Setting</h3>
+      <a mat-list-item [routerLink]="link.path" routerLinkActive="active"
+        *ngFor="let link of links" class="nav-item">{{ link.label }}</a>
+    </mat-nav-list>
+  </mat-card>
+  <mat-card class="main">
+    <router-outlet></router-outlet>
+  </mat-card>
+</div>

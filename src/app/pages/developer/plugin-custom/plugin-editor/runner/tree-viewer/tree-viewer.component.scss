@@ -1,0 +1,40 @@
+.mat-button-wrapper,
+.mat-icon-button,
+.mat-icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 1rem;
+}
+
+.tree-wrapper {
+    height: 100%;
+    width: 100%;
+    overflow: scroll;
+
+    .tree-node {
+        display: flex;
+        flex-direction: row;
+        padding: 2px;
+
+        span {
+            width: 5rem;
+        }
+    }
+
+    .children {
+        padding-left: 3rem;
+
+        &.hide {
+            display: none;
+        }
+    }
+
+    input {
+        background: transparent;
+        border-width: 1px;
+        border-style: solid;
+        padding: 0 4px;
+    }
+}

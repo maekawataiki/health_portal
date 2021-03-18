@@ -1,0 +1,13 @@
+.wrapper {
+    padding: 2rem;
+
+    .doc {
+        white-space: pre-line;
+    }
+}
+
+@media (max-width: 720px) {
+    .wrapper {
+        padding: 0;
+    }
+}

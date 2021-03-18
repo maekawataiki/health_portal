@@ -1,0 +1,26 @@
+:host {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.mat-app-background {
+    min-height: 100%;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+app-navbar {
+    transition: all .3s ease-in-out;
+}
+
+@media (max-width: 720px) {
+    :host {
+        top: 86px;
+    }
+}

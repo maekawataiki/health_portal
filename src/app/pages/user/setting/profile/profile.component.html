@@ -1,0 +1,30 @@
+<mat-list>
+  <h3 mat-subheader>My Body Profile</h3>
+  <mat-list-item class="list-tr" mat-line>
+    <span class="list-th">Birth Date</span>
+    <div class="spacer"></div>
+    <span class="list-td mat-subheader">{{ setting?.data?.birth_date | date:"MM/dd/yyyy" }}</span>
+  </mat-list-item>
+
+  <mat-list-item class="list-tr" mat-line>
+    <span class="list-th">Height</span>
+    <div class="spacer"></div>
+    <span class="list-td mat-subheader">{{ setting?.data?.height }} cm</span>
+  </mat-list-item>
+
+  <mat-list-item class="list-tr" mat-line>
+    <span class="list-th">Weight</span>
+    <div class="spacer"></div>
+    <span class="list-td mat-subheader">{{ setting?.data?.weight }} kg</span>
+  </mat-list-item>
+
+  <mat-list-item class="list-tr" mat-line>
+    <span class="list-th">Sex</span>
+    <div class="spacer"></div>
+    <span class="list-td mat-subheader">{{ setting?.data?.sex }}</span>
+  </mat-list-item>
+
+  <div class="button-row">
+    <button mat-stroked-button routerLink="edit">Edit</button>
+  </div>
+</mat-list>
